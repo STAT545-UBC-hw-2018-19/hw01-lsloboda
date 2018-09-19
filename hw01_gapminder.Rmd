@@ -7,41 +7,43 @@ output:
 ## Exploration of the gapminder data set
 
 This is a brief exploration of the gapminder dataset.
-First, let's load the library:
+
+* First, let's load the library:
 
 ```{r}
 library(gapminder)
 library(tidyverse)
 ```
 
-##Summary of gapminder dataset:
+* We'll summarize gapminder dataset as a sanity check:
 
 ```{r}
 summary(gapminder)
 ```
 
-##Let's select the variable year:
+* Let's select the variable year:
 
 ```{r}
 select(gapminder, year)
 ```
 
-##Now let's list country first and then list everything else:
-
-```{r}
-select(gapminder, country, everything())
-```
-
-##We'll arrange the dataset in descending order based on population:
+* We'll arrange the dataset in descending order based on population:
 
 ```{r}
 arrange(gapminder, desc(pop))
 ```
 
-##Finally let's find all entries of Brazil and Germany occuring in the '80s:
+* Let's find all entries of Brazil and Germany occuring in the '80s:
 
 ```{r}
 gapminder %>% 
   filter((country == "Brazil" | country == "Germany") & year >= 1980 & year < 1990 )
 
 ```
+
+* We'll plot the Year vs. Life Expectancy
+
+```{r}
+plot(x = gapminder$year, y = gapminder$lifeExp, xlab = 'Year', ylab = 'Life Expectancy')
+```
+

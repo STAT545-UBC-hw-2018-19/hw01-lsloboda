@@ -4,7 +4,9 @@ hw01\_gapminder
 Exploration of the gapminder data set
 -------------------------------------
 
-This is a brief exploration of the gapminder dataset. First, let's load the library:
+This is a brief exploration of the gapminder dataset.
+
+-   First, let's load the library:
 
 ``` r
 library(gapminder)
@@ -22,8 +24,7 @@ library(tidyverse)
     ## x dplyr::filter() masks stats::filter()
     ## x dplyr::lag()    masks stats::lag()
 
-Summary of gapminder dataset:
------------------------------
+-   We'll summarize gapminder dataset as a sanity check:
 
 ``` r
 summary(gapminder)
@@ -46,8 +47,7 @@ summary(gapminder)
     ##  Max.   :1.319e+09   Max.   :113523.1  
     ## 
 
-Let's select the variable year:
--------------------------------
+-   Let's select the variable year:
 
 ``` r
 select(gapminder, year)
@@ -68,8 +68,7 @@ select(gapminder, year)
     ## 10  1997
     ## # ... with 1,694 more rows
 
-Now let's list country first and then list everything else:
------------------------------------------------------------
+-   Now let's list country first and then list everything else:
 
 ``` r
 select(gapminder, country, everything())
@@ -90,8 +89,7 @@ select(gapminder, country, everything())
     ## 10 Afghanistan Asia       1997    41.8 22227415      635.
     ## # ... with 1,694 more rows
 
-We'll arrange the dataset in descending order based on population:
-------------------------------------------------------------------
+-   We'll arrange the dataset in descending order based on population:
 
 ``` r
 arrange(gapminder, desc(pop))
@@ -112,8 +110,7 @@ arrange(gapminder, desc(pop))
     ## 10 China   Asia       1977    64.0  943455000      741.
     ## # ... with 1,694 more rows
 
-Finally let's find all entries of Brazil and Germany occuring in the '80s:
---------------------------------------------------------------------------
+-   Let's find all entries of Brazil and Germany occuring in the '80s:
 
 ``` r
 gapminder %>% 
@@ -127,3 +124,11 @@ gapminder %>%
     ## 2 Brazil  Americas   1987    65.2 142938076     7807.
     ## 3 Germany Europe     1982    73.8  78335266    22032.
     ## 4 Germany Europe     1987    74.8  77718298    24639.
+
+-   We'll plot the Year vs. Life Expectancy
+
+``` r
+plot(x = gapminder$year, y = gapminder$lifeExp, xlab = 'Year', ylab = 'Life Expectancy')
+```
+
+![](hw01_gapminder_files/figure-markdown_github/unnamed-chunk-7-1.png)
