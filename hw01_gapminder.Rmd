@@ -8,7 +8,7 @@ output:
 
 This is a brief exploration of the gapminder dataset.
 
-* First, let's load the library:
+* First, let's load gapminder and tidyverse:
 
 ```{r}
 library(gapminder)
